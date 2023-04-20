@@ -34,10 +34,10 @@ const env = process.env;
 
       switch (page_title) {
         case "EC220-G5":
-          await configTpLink(ip, page, browser);
+          await configTpLink(ip, page);
           break;
         case "Archer C5":
-          await configTpLink(ip, page, browser);
+          await configTpLink(ip, page);
           break;
         default:
           break;
