@@ -7,9 +7,16 @@
   "author": "Victor Augusto Ferreira",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "tsnd --transpile-only --ignore-watch node_modules src/index.ts"
+  },
   "devDependencies": {
     "@types/node": "^18.15.12",
+    "dotenv": "^16.0.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "puppeteer": "^19.9.1"
   }
 }
