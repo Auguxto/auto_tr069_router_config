@@ -1,0 +1,15 @@
+{
+  "name": "auto_tr069_router_config",
+  "version": "1.0.0",
+  "description": "Script para configuraçao automática dos parâmetros TR-069 de roteadores",
+  "main": "build/index.js",
+  "repository": "https://github.com/Auguxto/auto_tr069_router_config",
+  "author": "Victor Augusto Ferreira",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^18.15.12",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4"
+  }
+}
