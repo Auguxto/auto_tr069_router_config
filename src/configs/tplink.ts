@@ -2,7 +2,6 @@ import { Page } from "puppeteer";
 
 import delay from "../lib/delay";
 import autoScroll from "../lib/autoScroll";
-import clearInputValue from "../lib/replaceInputValue";
 import replaceInputValue from "../lib/replaceInputValue";
 import configAuthParams from "../lib/configAuthParams";
 
@@ -85,25 +84,25 @@ export default async function configTpLink(ip: string, page: Page) {
     await delay(1000);
 
     // Alterando o tempo de inform de acordo com a configuração do arquivo .env
-    await clearInputValue(
+    await replaceInputValue(
       page,
       "#inform_interval",
       env.ACS_INFORM_INTERVAL.toString()
     );
 
     // Alterando a url do ACS de acordo com a configuração do arquivo .env
-    await clearInputValue(page, "#acs_url", env.ACS_URL);
+    await replaceInputValue(page, "#acs_url", env.ACS_URL);
 
     // Se tiver um usuário setado no arquivo de configuração .env
     if (env.ACS_USER) {
       // Alterando o usuário de conexão do ACS
-      await clearInputValue(page, "#acs_user_name", env.ACS_USER);
+      await replaceInputValue(page, "#acs_user_name", env.ACS_USER);
     }
 
     // Se tiver uma senha setada no arquivo de configuração .env
     if (env.ACS_PASSWORD) {
       // Alterando a senha de conexão do ACS
-      await clearInputValue(page, "#acs_user_pwd", env.ACS_PASSWORD);
+      await replaceInputValue(page, "#acs_user_pwd", env.ACS_PASSWORD);
     }
 
     const auth_active =
@@ -129,7 +128,8 @@ export default async function configTpLink(ip: string, page: Page) {
     await save_button?.click();
 
     await delay(2000);
-  } catch {
+  } catch (e) {
+    console.log(e);
     console.log(`Falha ao configurar TPLink ${ip}`);
   }
 }
